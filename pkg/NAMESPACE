@@ -1,0 +1,11 @@
+importFrom(stats, weights)
+exportClasses("parmaSpec", "parmaPort")
+export("parmaspec", "parmasolve", "parmafrontier","parmautility")
+exportMethods("checkarbitrage", "tictoc", "weights", "show")
+exportMethods("parmaset<-", "parmaget", "parmastatus")
+exportMethods("parmarisk", "parmareward")
+export("Daily2Weekly", "Daily2Monthly", "cmaes", "cmaes.control", "riskfun")
+export("ineqfun.turnover.min","ineqjac.turnover.min","ineqfun.bsturnover.min",
+"ineqjac.bsturnover.min","ineqfun.turnover.opt","ineqjac.turnover.opt",
+"ineqfun.bsturnover.opt","ineqjac.bsturnover.opt", "ineqfun.variance.opt",
+"ineqjac.variance.opt","ineqfun.variance.min","ineqjac.variance.min")
