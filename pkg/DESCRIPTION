@@ -1,13 +1,14 @@
 Package: parma
 Type: Package
 Title: Portfolio Allocation and Risk Management Applications
-Version: 1.5-0
-Date: 2013-04-30
-Author: alexios ghalanos
+Version: 1.5-1
+Date: 2013-09-05
+Author: Alexios Ghalanos and Bernhard Pfaff
 Maintainer: alexios ghalanos <alexios@4dscape.com>
 Description: Portfolio Optimization
 Collate: p-cmaes.R p-classes.R p-constraints.R p-timeseries.R p-fun.R p-Utility.R p-MILP.R p-NLP.R p-GNLP.R p-LP.R p-QP.R p-main.R p-methods.R zzz.R
-Depends: methods, nloptr, Rglpk, quadprog
+Depends: methods
+Imports: slam, nloptr, Rglpk, quadprog
 Suggests: truncnorm, timeSeries, Rsymphony
 LazyLoad: yes
 LazyData: yes

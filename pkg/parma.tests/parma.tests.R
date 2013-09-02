@@ -1,12 +1,21 @@
 #################################################################################
 ##
-##   R package pom by Alexios Ghalanos Copyright (C) 2012
-##   This file is part of the R package pom.
-##	 Unless explicit and written permission granted by the copyright holder, 
-##	 no use, copy or modification of any part of this software allowed.
+##   R package parma
+##   Alexios Ghalanos Copyright (C) 2012-2013 (<=Aug)
+##   Alexios Ghalanos and Bernhard Pfaff Copyright (C) 2013- (>Aug)
+##   This file is part of the R package parma.
+##
+##   The R package parma is free software: you can redistribute it and/or modify
+##   it under the terms of the GNU General Public License as published by
+##   the Free Software Foundation, either version 3 of the License, or
+##   (at your option) any later version.
+##
+##   The R package parma is distributed in the hope that it will be useful,
+##   but WITHOUT ANY WARRANTY; without even the implied warranty of
+##   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##   GNU General Public License for more details.
 ##
 #################################################################################
-
 
 # Risk Functions
 parma.test1 = function()
