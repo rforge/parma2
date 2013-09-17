@@ -1,3 +1,6 @@
+2013-09-30  Alexios Ghalanos <alexios@4dscape.com>
+	* DESCRIPTION (Version): version is 1.5-1.
+
 2013-04-30  Alexios Ghalanos <alexios@4dscape.com>
 	* DESCRIPTION (Version): version is 1.5-0.
 	* Exported and documented custom constraint functions and their jacobians 

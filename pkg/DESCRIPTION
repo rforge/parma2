@@ -2,7 +2,7 @@ Package: parma
 Type: Package
 Title: Portfolio Allocation and Risk Management Applications
 Version: 1.5-1
-Date: 2013-09-05
+Date: 2013-09-30
 Author: Alexios Ghalanos and Bernhard Pfaff
 Maintainer: alexios ghalanos <alexios@4dscape.com>
 Description: Portfolio Optimization
