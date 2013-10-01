@@ -845,6 +845,9 @@
 	optvars$eq.mat    = spec@constraints$eq.mat
 	optvars$LB = spec@constraints$LB
 	optvars$UB = spec@constraints$UB
+	optvars$ineq.LB  = spec@constraints$ineq.LB
+	optvars$ineq.UB  = spec@constraints$ineq.UB	
+	optvars$eqB      = spec@constraints$eqB	
 	return(optvars)
 }
 
