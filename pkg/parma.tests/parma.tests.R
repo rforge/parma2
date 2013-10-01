@@ -21,7 +21,7 @@
 parma.test1 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	Data = as.matrix(Data)
 	set.seed(20)
@@ -154,7 +154,7 @@ parma.test1 = function()
 parma.test2 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	
 	pspec1 = parmaspec(scenario = Data, forecast = colMeans(Data), 
@@ -360,7 +360,7 @@ parma.test2 = function()
 parma.test3 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	
 	pspec1 = parmaspec(scenario = Data, forecast = colMeans(Data), 
@@ -602,7 +602,7 @@ parma.test3 = function()
 parma.test4 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 
 	spec1 = parmaspec(scenario = Data, forecast = colMeans(Data), 
@@ -672,7 +672,7 @@ parma.test4 = function()
 parma.test5 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	
 	set.seed(12)
@@ -817,7 +817,7 @@ parma.test5 = function()
 parma.test6 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	
 	set.seed(12)
@@ -954,7 +954,7 @@ parma.test6 = function()
 parma.test6 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	Data = as.matrix(Data)
 	m = 15
@@ -1089,7 +1089,7 @@ parma.test6 = function()
 parma.test7 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	
 	m = 15
@@ -1271,7 +1271,7 @@ parma.test7 = function()
 parma.test9 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	Data = timeSeries::returns(etfdata)
 	f = colMeans(Data)
 	pspec1 = parmaspec(scenario = Data, target = 0, 
@@ -1371,7 +1371,7 @@ parma.test9 = function()
 parma.test10 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	require(rmgarch)
 	require(parallel)
 	Data = timeSeries::returns(etfdata)
@@ -1460,7 +1460,7 @@ parma.test10 = function()
 parma.test13 = function()
 {
 	tic = Sys.time()
-	if(!is.loaded("etfdata")) data(etfdata)
+	if(!exists("etfdata")) data(etfdata)
 	S = timeSeries::returns(etfdata)
 	
 	w = matrix(NA, ncol = 15, nrow = 4)
