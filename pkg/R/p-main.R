@@ -439,7 +439,7 @@
 			if(nb!=length(ineq.UB)) stop("\nparma: ineq.mat rows not equal to length of ineq.UB")
 		}
 		if(!is.null(eq.mat)){
-			ineq.mat = as.matrix(eq.mat)
+			eq.mat = as.matrix(eq.mat)
 			nb = dim(eq.mat)[2]
 			if(nb!=m) stop("\nparma: eq.mat columns not equal to number of assets")
 			nb = dim(eq.mat)[1]
