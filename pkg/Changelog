@@ -1,8 +1,14 @@
-2013-09-30  Alexios Ghalanos <alexios@4dscape.com>
+2013-11-01  Alexios Ghalanos <alexios@4dscape.com>
 	* DESCRIPTION (Version): version is 1.5-1.
 	* Fixed bug in QP spec where the eq.mat custom equality
-	constraint was not passed to the solver.
-
+	constraint was not passed to the solver. [AG]
+	* New socp type problems and formulations and use of Socp
+	solver from FRAPO. Updated vignette entry with details. [AG]
+	* New tests in parma.tests for socp problems. [AG]
+	* Replaced dependency on timeSeries for dataset with xts. [AG]
+	* Removed Daily2Weekly and Daily2Monthly functions since xts can
+	easily be used to create these without additional functionality.
+	
 2013-04-30  Alexios Ghalanos <alexios@4dscape.com>
 	* DESCRIPTION (Version): version is 1.5-0.
 	* Exported and documented custom constraint functions and their jacobians 

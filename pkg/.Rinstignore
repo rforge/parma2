@@ -1,4 +1,4 @@
-parma.tests
+./inst/parma.tests
 ./vignettes/Portfolio_Optimization_in_parma.tex
 ./vignettes/parma.tex
 ./vignettes/frontier.tex

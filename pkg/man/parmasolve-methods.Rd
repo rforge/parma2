@@ -11,7 +11,7 @@ Solves for the optimal weights given parmaSpec defined model.
 \usage{
 parmasolve(spec, type = NULL, solver = NULL, solver.control = list(), x0 = NULL, 
 w0 = NULL, parma.control = list(ubounds = 1e4, mbounds = 1e5, 
-penalty = 1e4), ...)
+penalty = 1e4, eqSlack = 1e-05), ...)
 }
 \arguments{
 \item{spec}{ A \code{\linkS4class{parmaSpec}} object.}
@@ -30,7 +30,8 @@ formulation has the multiplier in the last position).}
 \item{parma.control}{ Internal NLP tuning parameters, where \sQuote{ubounds} represents
 the symmetric unconstrained parameter bounds in the fractional problem, \sQuote{mbounds}
 the multiplier upper bounds in the fractional formulation, \sQuote{penalty} the GNLP
-penalty parameter.}
+penalty parameter and \sQuote{eqSlack} the slack value to use for converting equalities
+to inequalities in the SOCP formulation.}
 \item{...}{ Currently only the \sQuote{verbose} argument (logical) which is used 
 and passed to the GLPK solver (similar to \sQuote{trace}). }
 }

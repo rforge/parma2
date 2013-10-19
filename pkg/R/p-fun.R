@@ -236,3 +236,11 @@ simweights = function(m, LB = 0, UB = 1, budget=1, forecast=rep(0,m), constrain.
 is.even = function(x){ as.logical( (round(x)+1)%%2 ) }
 
 .logtransform = function(x, LB, UB){ LB + (UB - LB)/(1+exp(-x))}
+
+# matrix square root via svd
+.sqrtm = function(x)
+{
+	tmp = svd(x)
+	sqrtx = tmp$u%*%sqrt(diag(tmp$d))%*%t(tmp$u)
+	return(sqrtx)
+}

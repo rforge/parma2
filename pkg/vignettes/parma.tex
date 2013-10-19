@@ -729,15 +729,75 @@ The quadratic formulation, for use in the EV type problem of
 \end{gathered}
 \end{equation}
 where $\mathbf{S}$ is some positive definite covariance matrix, and
-constraints as in the LP case in Equation \eqref{milp}. Inclusion of
-quadratic constraints (making use of second order cone programming) and mixed
-integer QP may be included in future versions of the package. Benchmark relative
+constraints as in the LP case in Equation \eqref{milp}. Benchmark relative
 optimization is fully supported, and in this case a vector of the covariance
 between the benchmark and the portfolio must be passed (via the \emph{benchmarkS}
 option in the \emph{parmaspec} function), where the first value is the variance of
-the benchmark. The rest of the values should be passed as explained in the MILP
-section. The interested reader should consult for example \citet{Stoyanov2007}
-pp.412--414 for details of benchmark relative optimization in a QP setup.
+the benchmark, so that the resulting joint covariance matrix constructed by the
+routine is:
+\begin{equation}
+{\Sigma _{b,r}} = \left( {\begin{array}{*{20}{c}}
+  {\sigma _b^2}&{{\sigma _{\left\{ {b,r} \right\}}}} \\ 
+  {{\sigma _{\left\{ {b,r} \right\}}}}&{{\Sigma _r}} 
+\end{array}} \right)
+\end{equation}
+and the portfolio relative risk is then given by ${\left( { - 1,w} \right)^\prime }{\Sigma _{b,r}}\left( { - 1,w} \right)$.
+The rest of the values should be passed as explained in the MILP section. The interested reader should 
+consult for example \citet{Stoyanov2007} pp.412--414 for details of benchmark relative optimization in a QP setup.
+\subsubsection{Optimal Portfolio}\label{qpopt}
+The optimal portfolios admit one of 2 equivalent representations, depending on whether we are maximizing reward to risk:
+\begin{equation}
+\begin{gathered}
+  \mathop {{\text{max}}}\limits_{{\mathbf{x}},t} {\text{ }}{\mathbf{x'}}{f_r} \hfill \\
+  {\text{s.t.  }}{\left( { - t,{\mathbf{x}}} \right)^\prime }{\Sigma _{b,r}}\left( { - t,{\mathbf{x}}} \right) \leqslant 1 \hfill \\
+  {\mathbf{x'1}} = t \hfill \\
+  t{\mathbf{L}} \leqslant {\mathbf{Ax}} \leqslant t{\mathbf{U}} \hfill \\
+  t \geqslant 0 \hfill \\ 
+\end{gathered}
+\end{equation}
+or minimizing risk to reward:
+\begin{equation}
+\begin{gathered}
+  \mathop {{\text{min}}}\limits_{{\mathbf{x}},t} {\text{ }}{\left( { - t,{\mathbf{x}}} \right)^\prime }{\Sigma _{b,r}}\left( { - t,{\mathbf{x}}} \right) \hfill \\
+  {\text{s.t.  }}{\mathbf{x'}}{f_r} = 1 \hfill \\
+  {\mathbf{x'1}} = t \hfill \\
+  t{\mathbf{L}} \leqslant {\mathbf{Ax}} \leqslant t{\mathbf{U}} \hfill \\
+  t \geqslant 0 \hfill \\ 
+\end{gathered}
+\end{equation}
+where it is understood that $f_r$ is the returns forecast, and in the case of benchmark relative optimization, the returns forecast in excess of the benchmark forecast.
+\subsection{SOCP}
+A Second Order Cone Programming (\emph{SOCP}) problem has the following form:
+\begin{equation}
+\begin{array}{l}
+{\text{minimize    }}c'x\\
+{\text{subject to   }}\left\| {{A_i}x + {b_i}} \right\| \le {{c'}_i}x + {d_i},{\text{   i = 1,\dots,L}}\\
+\end{array}
+\end{equation}
+where $\left\| {...} \right\|$ denotes the euclidean norm so that $\left\| x \right\| = \sqrt {x'x}$. Special cases include linear, quadratic and quadratically constrained quadratic problems, as well as a number of nonlinear and possible non-differentiable problems. While SOCP is a special case of Semi-Definite programming (\emph{SDP}) it is always more efficient to solve these problems using special purpose solvers rather than more general ones.
+ 
+A special set of constraints based on p-norms can be represented using SOCP. Consider the following
+p-norm inequality constraint:
+\begin{equation}
+{\left\| x \right\|_p} = {\left( {\sum\limits_{i = 1}^n {{{\left| {{x_i}} \right|}^p}} } \right)^{1/p}} \le t
+\end{equation}
+which involves the p-norm of a vector x $\in \Re^n$. We can re-write $p$ as $l/m$, where $l\ge m$, so that:
+\begin{equation}
+{\left\| x \right\|_p} = {\left( {\sum\limits_{i = 1}^n {{{\left| {{x_i}} \right|}^{l/m}}} } \right)^{m/l}} \le t
+\end{equation}
+and is equivalent to the following set of constraints:
+\begin{equation}
+\begin{array}{l}
+ - {x_i} + {t^{\frac{{l - m}}{l}}}s_i^{\frac{m}{l}} \ge 0\\
+{x_i} + {t^{\frac{{l - m}}{l}}}s_i^{\frac{m}{l}} \ge 0\\
+{s_i} \ge 0,{\rm{  }}i = 1,...,n\\
+\left( {\sum\limits_{i = 1}^n {{s_i}} } \right) \le t,{\rm{  }}t \ge 0
+\end{array}
+\end{equation}
+where $s$ is an auxilliary vector of variables of same size as the original decision vector x. Obviously, the inequality can be turned into an equality using one extra constraint. However, care should be taken to allow for some slack between the upper and lower bounds of the 2 inequality constraints used to represent one equality else numerical difficulties may be encountered by the solver. It thus follows from the above type of exposition that it is quite easy to include a leverage constraint in a long/short portfolio optimization setting by setting $l=m=1$ which represents the manhattan norm.
+
+In the parma package, problems which include the covariance matrix instead of a scenario may be solved either by the QP solver else the SOCP solver. In the latter case, there is a greater deal of flexibility since QCQP problems are easily solved (see the option for a list of matrices \emph{Q} in the documentation on \textbf{parmaspec}), as is the case of long/short optimization with a leverage (gross sum) constraint and the optimal risk to reward problem using the fractional approach of Section \ref{qpopt}
+
 
 \subsection{GNLP}
 The GNLP problem in the \textbf{parma} package is represented by use of

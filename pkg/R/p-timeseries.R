@@ -98,37 +98,3 @@ Lag = function(x, n.lag = 1, pad = 0){
 	}
 	return(ans)
 }
-
-# timeSeries based
-Daily2Weekly = function(data, weekday = "Friday", in.format = "%Y-%m-%d", interp.NA = "before"){
-	if(!is.timeSeries(data)) stop("\nOnly timeSeries class supported")
-	s = as.Date(start(data))
-	e = as.Date(end(data))
-	d = SeqWeekdays(s, e, format = in.format)
-	nd = length(d)
-	nd = timeSeries(rep(1, nd), d)
-	nd = cbind(nd, data)
-	nd = nd[,-1]
-	nd = interpNA(nd, method = interp.NA)
-	dt = as.character(time(nd))
-	w = Weekday(d, format = attr(d, 'format'), weekday = weekday)
-	p = match(w, dt)
-	newd = as.timeSeries(nd[p,])
-	return(newd)
-}
-
-Daily2Monthly = function(data, in.format = "%Y-%m-%d", interp.NA = "before"){
-	if(!is.timeSeries(data)) stop("\nOnly timeSeries class supported")
-	s = as.Date(start(data))
-	e = as.Date(end(data))
-	d = SeqWeekdays(s, e, format = in.format)
-	nd = length(d)
-	nd = timeSeries(rep(1, nd), d)
-	nd = cbind(nd, data)
-	nd = nd[,-1]
-	nd = interpNA(nd, method = interp.NA)
-	dt = as.character(time(nd))
-	m = LastMonthDay(dt, attr(d, 'format'))
-	newd = as.timeSeries(nd[m,])
-	return(newd)
-}
