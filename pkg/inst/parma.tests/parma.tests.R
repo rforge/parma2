@@ -22,7 +22,7 @@ parma.test1 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -157,7 +157,7 @@ parma.test2 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -366,7 +366,7 @@ parma.test3 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -611,7 +611,7 @@ parma.test4 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -684,7 +684,7 @@ parma.test5 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -832,7 +832,7 @@ parma.test6 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -972,7 +972,7 @@ parma.test6 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -1109,7 +1109,7 @@ parma.test7 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -1294,7 +1294,7 @@ parma.test9 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)
 	
@@ -1397,7 +1397,7 @@ parma.test10 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	Data = etfdata/lag(etfdata)-1
 	Data = na.omit(Data)	
 	require(rmgarch)
@@ -1485,7 +1485,7 @@ parma.test10 = function()
 parma.test11 = function()
 {
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	R = etfdata/lag(etfdata)-1
 	R = na.omit(R)
 	
@@ -1912,7 +1912,7 @@ parma.test13 = function()
 {
 	tic = Sys.time()
 	library(xts)
-	data("etfdata.rda")
+	data("etfdata")
 	S = etfdata/lag(etfdata)-1
 	S = na.omit(S)
 	
