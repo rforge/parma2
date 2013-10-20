@@ -7,7 +7,9 @@
 	* New tests in parma.tests for socp problems. [AG]
 	* Replaced dependency on timeSeries for dataset with xts. [AG]
 	* Removed Daily2Weekly and Daily2Monthly functions since xts can
-	easily be used to create these without additional functionality.
+	easily be used to create these without additional functionality. [AG]
+	* Moved nloptr to Depends since there were problems with the pure
+	import of the main solver function without loading package in user space. [AG]
 	
 2013-04-30  Alexios Ghalanos <alexios@4dscape.com>
 	* DESCRIPTION (Version): version is 1.5-0.

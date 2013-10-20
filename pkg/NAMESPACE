@@ -1,6 +1,6 @@
 importFrom(stats, weights)
 import(methods)
-importFrom(nloptr, nloptr)
+importFrom(nloptr, nloptr, nloptr.print.options)
 importFrom(FRAPO, Socp)
 importFrom(quadprog, solve.QP)
 importFrom(Rglpk, Rglpk_solve_LP)

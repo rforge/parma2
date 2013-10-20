@@ -7,8 +7,8 @@ Author: Alexios Ghalanos and Bernhard Pfaff
 Maintainer: alexios ghalanos <alexios@4dscape.com>
 Description: Portfolio Optimization
 Collate: p-cmaes.R p-classes.R p-constraints.R p-timeseries.R p-fun.R p-Utility.R p-MILP.R p-NLP.R p-GNLP.R p-LP.R p-QP.R p-SOCP.R p-main.R p-methods.R zzz.R
-Depends: methods
-Imports: slam, nloptr, Rglpk, quadprog, FRAPO, corpcor, parallel
+Depends: R (>= 2.10), methods, nloptr
+Imports: slam, Rglpk, quadprog, FRAPO, corpcor, parallel
 Suggests: truncnorm, xts, Rsymphony
 LazyLoad: yes
 LazyData: yes
