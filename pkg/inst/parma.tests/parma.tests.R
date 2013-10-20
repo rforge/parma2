@@ -1903,6 +1903,7 @@ parma.test11 = function()
 	sink(type="message")
 	sink()
 	close(zz)
+	
 	toc = Sys.time() - tic
 	
 	
@@ -1932,11 +1933,11 @@ parma.test13 = function()
 		rr[i,2] = parmareward(sol)
 	}
 	# eliminate all zeros
-	colnames(w) = colnames(Data)
+	colnames(w) = colnames(S)
 	rownames(w) = rmeasure
 	idx = which(apply(w, 2, FUN = function(x) sum(x)) == 0)
 	wnew = w[,-idx]
-	wnew = rbind(wnew, rep(0, 4))
+	wnew = rbind(wnew, rep(0, ncol(wnew)))
 	
 	postscript("parma_test13.eps", width = 12, height = 8)
 	barplot(t(wnew), legend.text = TRUE, space=  0, col = c("red", "coral", "steelblue", "cadetblue", "aliceblue"),
@@ -1965,7 +1966,7 @@ parma.test13 = function()
 				targetType = "inequality", risk = rmeasure[i], riskType = "minrisk", 
 				options = list(moment = 1, threshold = 999, alpha = 0.05),
 				LB = rep(0, 15), UB = rep(0.5, 15), budget = 1,
-				asset.names = colnames(Data[,1:m]))
+				asset.names = colnames(S))
 		sol1 = parmasolve(spec, type = "LP", solver="GLPK")
 		sol2 = parmasolve(spec, type = "GNLP", solver = "cmaes", solver.control = ctrl)
 	
