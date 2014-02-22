@@ -821,22 +821,22 @@ nlpport = function(optvars, uservars, control = list(), ...)
 ineqfun.turnover.min = function(w, optvars, uservars){
 	widx = optvars$widx
 	wold = uservars$wold
-	return( sum( parma:::func.abs.smooth(w[widx] - wold) ) - uservars$turnover )
+	return( sum( func.abs.smooth(w[widx] - wold) ) - uservars$turnover )
 }
 
 ineqjac.turnover.min = function(w, optvars, uservars){
 	widx = optvars$widx
 	fm = optvars$fm
 	j = matrix(0, 1, fm)
-	j[1, widx] = parma:::grad.abs.smooth(w[widx]- uservars$wold)
+	j[1, widx] = grad.abs.smooth(w[widx]- uservars$wold)
 	return(j)
 }
 
 ineqfun.bsturnover.min = function(w, optvars, uservars){
 	widx = optvars$widx
 	wold = uservars$wold
-	bt = sum(parma:::func.max.smooth(w[widx] - wold)) - uservars$buyturnover
-	st = sum(parma:::func.max.smooth(wold - w[widx])) - uservars$sellturnover
+	bt = sum(func.max.smooth(w[widx] - wold)) - uservars$buyturnover
+	st = sum(func.max.smooth(wold - w[widx])) - uservars$sellturnover
 	return(c(bt, st))
 }
 
@@ -856,7 +856,7 @@ ineqfun.turnover.opt = function(w, optvars, uservars){
 	midx = optvars$midx
 	wold = uservars$wold
 	print(sum(w[widx]/w[midx]))
-	return( sum( parma:::func.abs.smooth(w[widx]/w[midx] - wold) ) - uservars$turnover )
+	return( sum( func.abs.smooth(w[widx]/w[midx] - wold) ) - uservars$turnover )
 }
 
 ineqjac.turnover.opt = function(w, optvars, uservars){
@@ -875,8 +875,8 @@ ineqfun.bsturnover.opt = function(w, optvars, uservars){
 	widx = optvars$widx
 	wold = uservars$wold
 	midx = optvars$midx
-	bt = sum(parma:::func.max.smooth(w[widx]/w[midx] - wold)) - uservars$buyturnover
-	st = sum(parma:::func.max.smooth(wold - w[widx]/w[midx])) - uservars$sellturnover
+	bt = sum(func.max.smooth(w[widx]/w[midx] - wold)) - uservars$buyturnover
+	st = sum(func.max.smooth(wold - w[widx]/w[midx])) - uservars$sellturnover
 	return(c(bt, st))
 }
 
