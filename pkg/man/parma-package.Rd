@@ -11,7 +11,7 @@ moment based optimization of portfolios.
 Package: \tab parma\cr
 Type: \tab Package\cr
 Version: \tab 1.5-1\cr
-Date: \tab 2013-09-05\cr
+Date: \tab 2014-02-23\cr
 License: \tab GPL\cr
 LazyLoad: \tab yes\cr
 Depends: \tab methods\cr
@@ -45,10 +45,10 @@ optimization solver of Hansen (2006) with full features is implemented in
 \section{How to cite this package}{
   Whenever using this package, please cite as\cr
 
- \preformatted{@Manual{Ghalanos_2013,
+ \preformatted{@Manual{Ghalanos_2014,
  author       = {Alexios Ghalanos and Bernhard Pfaff},
  title        = {{parma}: Portfolio Allocation and Risk Management Applications.},
- year         = {2013},
+ year         = {2014},
  note 	      = {R package version 1.5-1.},}}
 \emph{}
 }

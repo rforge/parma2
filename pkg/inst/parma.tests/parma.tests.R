@@ -1531,6 +1531,7 @@ parma.test11 = function()
 	
 	frontqp = parmafrontier(spec, n.points = 100, miny = NULL, maxy = NULL, 
 			type = "QP", solver.control = control)
+	# ok to ignore warnings...just indicating points outside the feasible frontier
 	postscript("parma_test11a.eps", width = 12, height = 8)
 	plot(frontqp[,"EV"], frontqp[,"reward"], type="l", xlab = "risk", ylab="reward",
 			main = "EV Frontier\n[QP and SOCP]", cex.main=0.9)
