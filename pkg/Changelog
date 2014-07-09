@@ -1,3 +1,8 @@
+2014-07-09  Alexios Ghalanos <alexios@4dscape.com>
+	* DESCRIPTION (Version): version is 1.5-2.
+	* Fixed bug in QP spec where the targetType equality was
+	not respected.
+
 2014-02-23  Alexios Ghalanos <alexios@4dscape.com>
 	* DESCRIPTION (Version): version is 1.5-1.
 	* Fixed bug in QP spec where the eq.mat custom equality
